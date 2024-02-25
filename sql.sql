@@ -1,5 +1,7 @@
 
 DROP TABLE IF EXISTS utilisateur;
+DROP TABLE IF EXISTS mots_de_passe;
+
 
 CREATE TABLE utilisateur (
     id_utilisateur INT AUTO_INCREMENT PRIMARY KEY,
@@ -9,6 +11,15 @@ CREATE TABLE utilisateur (
     est_actif INT,
     nom VARCHAR(50),
     email VARCHAR(100)
+);
+
+CREATE TABLE mots_de_passe (
+    id_mot_de_passe INT AUTO_INCREMENT PRIMARY KEY,
+    nom_site VARCHAR(100),
+    mot_de_passe VARCHAR(255),
+    date_ajout DATETIME,
+    id_utilisateur INT,
+    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur)
 );
 
 
@@ -25,3 +36,13 @@ INSERT INTO utilisateur (id_utilisateur, login, password, role, est_actif, nom, 
     'ROLE_client', 1, 'client2', 'client2@client2.fr');
 
 
+
+
+
+
+INSERT INTO mots_de_passe (nom_site, mot_de_passe, date_ajout, id_utilisateur) VALUES
+('Site 1', 'mot_de_passe_1', NOW(), 1),
+('Site 2', 'mot_de_passe_2', NOW(), 1),
+('Site 3', 'mot_de_passe_3', NOW(), 2),
+('Site 4', 'mot_de_passe_4', NOW(), 2),
+('Site 5', 'mot_de_passe_5', NOW(), 3);

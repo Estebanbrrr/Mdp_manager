@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="/login" class="btn">Connexion</a>
+        <a href="/signup" class="btn">Inscription</a>
+    </div>
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+</body>
+</html>
+

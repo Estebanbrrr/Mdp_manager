@@ -65,3 +65,33 @@ button:hover {
 .signup-link a:hover {
     text-decoration: underline;
 }
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.btn:hover {
+    background-color: #4cae4c;
+}
+
+.container {
+    padding: 20px;
+}

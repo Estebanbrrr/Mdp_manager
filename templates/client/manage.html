@@ -1,0 +1,23 @@
+{% block content %}
+    <h1>Mots de Passe Enregistrés</h1>
+    <a href="/ajouter">Ajouter un nouveau mot de passe</a>
+    <ul>
+        {% for motdepasse in motsdepasse %}
+            <li>{{ motdepasse.nom }}: {{ motdepasse.motdepasse }} <a href="/supprimer/{{ motdepasse.id }}">Supprimer</a></li>
+        {% endfor %}
+    </ul>
+    <table class="table">
+                <thead class="thead-dark">
+                    <tr><th>Nom Site</th><th> Mot de passe</th><th>date ajout</th></tr>
+                </thead>
+                <tbody>
+                        {% for ligne in mot_de_passe %}
+                            <tr>
+                                <td>{{ ligne.nom_site }}</td>
+                                <td>{{ ligne.mot_de_passe }}</td>
+                                <td>{{ ligne.date_ajout }}</td>
+                            </tr>
+                        {% endfor %}
+
+                </tbody>
+{% endblock %}
