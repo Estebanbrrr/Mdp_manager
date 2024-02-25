@@ -95,3 +95,179 @@ button:hover {
 .container {
     padding: 20px;
 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding-top: 60px; /* Ajustement pour ne pas cacher le contenu sous la nav-bar */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+a {
+    color: #5cb85c;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.table {
+    margin-top: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+.table, .table th, .table td {
+    border: 1px solid #ddd;
+}
+
+.table th, .table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #4cae4c;
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+thead.thead-dark th {
+    background-color: #333;
+    color: white;
+}
+
+/* Styles pour le lien d'ajout et les boutons de suppression */
+a[href^="/ajouter"], a[href^="/supprimer"] {
+    padding: 5px 10px;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+a[href^="/ajouter"]:hover, a[href^="/supprimer"]:hover {
+    background-color: #4cae4c;
+}
+
+/* Ajustement pour que le contenu ne soit pas collé à la nav-bar */
+.container {
+    padding-top: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.title {
+    text-align: center;
+    color: #333;
+}
+
+.btn, .btn_add, .btn_delete {
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.btn_add {
+    background-color: #4CAF50; /* Green */
+}
+
+.btn_delete {
+    background-color: #f44336; /* Red */
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table, .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #555;
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.thead-dark th {
+    background-color: #333;
+}
+/* Style pour le pop-up */
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, 0);
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Ajoutez d'autres styles selon vos besoins */
+.form-container {
+  max-width: 300px;
+  padding: 20px;
+  background-color: white;
+}
+
+/* Bouton pour fermer le formulaire */
+.form-container .btn.cancel {
+  background-color: red;
+}
+
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: red;
+}

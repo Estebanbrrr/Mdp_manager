@@ -1,23 +1,56 @@
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gestionnaire de Mots de Passe{% endblock %}</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
 {% block content %}
-    <h1>Mots de Passe Enregistrés</h1>
-    <a href="/ajouter">Ajouter un nouveau mot de passe</a>
-    <ul>
-        {% for motdepasse in motsdepasse %}
-            <li>{{ motdepasse.nom }}: {{ motdepasse.motdepasse }} <a href="/supprimer/{{ motdepasse.id }}">Supprimer</a></li>
-        {% endfor %}
-    </ul>
-    <table class="table">
-                <thead class="thead-dark">
-                    <tr><th>Nom Site</th><th> Mot de passe</th><th>date ajout</th></tr>
-                </thead>
-                <tbody>
-                        {% for ligne in mot_de_passe %}
-                            <tr>
-                                <td>{{ ligne.nom_site }}</td>
-                                <td>{{ ligne.mot_de_passe }}</td>
-                                <td>{{ ligne.date_ajout }}</td>
-                            </tr>
-                        {% endfor %}
+    <div class="container">
+        <h1 class="title">Mots de Passe Enregistrés</h1>
+        <a class="btn btn_add" href="#" onclick="openForm()">Ajouter un nouveau mot de passe</a>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr><th>Nom Site</th><th>Mot de passe</th><th>Date ajout</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+                {% for ligne in mot_de_passe %}
+                    <tr>
+                        <td>{{ ligne.nom_site }}</td>
+                        <td>{{ ligne.mot_de_passe }}</td>
+                        <td>{{ ligne.date_ajout }}</td>
+                        <td>
+                            <form action="/client/manage/supprimer" method="GET" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce mot de passe ?');">
+                                <input type="hidden" name="id_mot_de_passe" value="{{ ligne.id_mot_de_passe }}">
+                                <button type="submit">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="form-popup" id="popupForm">
+    <form action="/ajouter" class="form-container" method="POST">
+        <h2>Ajouter un Nouveau Mot de Passe</h2>
 
-                </tbody>
+        <label for="nom"><b>Nom</b></label>
+        <input type="text" placeholder="Entrer le nom du site" name="nom" required>
+
+        <label for="motdepasse"><b>Mot de Passe</b></label>
+        <input type="password" placeholder="Entrer le mot de passe" name="motdepasse" required>
+
+        <button type="submit" class="btn">Ajouter</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
+    </form>
+    </div>
 {% endblock %}
+
+<script>
+function openForm() {
+  document.getElementById("popupForm").style.display = "block";
+}
+
+// Fonction pour fermer le formulaire
+function closeForm() {
+  document.getElementById("popupForm").style.display = "none";
+}
+</script>
